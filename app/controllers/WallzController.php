@@ -5,8 +5,12 @@ class WallzController extends \Phalcon\Mvc\Controller {
         $response = new \Phalcon\Http\Response();
         if($request->isGet()){
 
-            //pull wall table entry/model from table
-            $wall = Wallz::findFirst();
+            // Count total number of rows
+            $totalwallz = count(Wallz::find());
+
+            //pull a random wall table entry/model from table
+            $wall = Wallz::findFirst(rand(1, $totalwallz));
+
             //build array from model pulled
             $data = array('wallpaper' => $wall->wallpaper, 'audio' => $wall->audio);
 

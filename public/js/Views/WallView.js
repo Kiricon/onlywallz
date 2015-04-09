@@ -8,6 +8,6 @@ var WallView = Backbone.View.extend({
         this.model.on('change', this.render, this);
     },
     render: function(){
-        this.$el.css('background', 'url('+this.model.get('wallpaper')+')');
+        this.$el.css('background-image', 'url('+this.model.get('wallpaper')+')');
     }
 });

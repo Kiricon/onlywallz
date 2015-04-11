@@ -16,6 +16,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-color: #3F51B5;
+    display:table;
 }
 #newwall {
     position: absolute;
@@ -48,4 +49,14 @@ body {
     font-size:0.9em;
     display: inline-block;
     margin: 0.5em;
+}
+
+.loadcontainer {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#loading {
+    text-align: center;
+    color: white;
 }

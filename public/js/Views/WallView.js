@@ -23,3 +23,22 @@ var WallView = Backbone.View.extend({
         this.model.fetch();
     }
 });
+
+var NewWallView = Backbone.View.extend({
+
+    el: '#wallsubmit',
+    model: new WallModel,
+    events: {
+        'click #submit': 'submit'
+    },
+    submit: function(){
+        this.model.set({
+           wallpaper: this.$('.wallpaper').val(),
+            audio: this.$('.audio').val()
+        });
+
+        this.model.save();
+
+    }
+
+});

@@ -20,5 +20,16 @@ class WallzController extends \Phalcon\Mvc\Controller {
             //Return response
             return $response;
         }
+
+        if($request->isPost()){
+            $walldata = $request->getJsonRawBody();
+
+            $newwall = new Wallz();
+
+            $newwall->wallpaper = $walldata->wallpaper;
+            $newwall->audio = $walldata->audio;
+
+            $newwall->save();
+        }
     }
 }

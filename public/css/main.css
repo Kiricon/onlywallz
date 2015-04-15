@@ -22,6 +22,10 @@ body {
     position: absolute;
     right: 0px;
 }
+
+#wallsubmit {
+    position:absolute;
+}
 .raisedbutton {
     background: #6f86ff;
     color: #ffffff;
@@ -51,7 +55,7 @@ body {
     margin: 0.5em;
 }
 
-.loadcontainer {
+.loadcontainer, .middiv {
     display: table-cell;
     vertical-align: middle;
 }
@@ -59,4 +63,14 @@ body {
 #loading {
     text-align: center;
     color: white;
+}
+
+#videocontainer {
+    display:table;
+    margin: 0px auto;
+}
+
+#showsubmit {
+    width: 10em;
+    background: #4CAF50;
 }

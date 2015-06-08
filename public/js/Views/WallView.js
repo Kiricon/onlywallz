@@ -8,7 +8,7 @@ var WallView = Backbone.View.extend({
         "click #newwall": "newwall"
     },
     initialize: function(){
-        this.model.fetch();
+       // this.model.fetch();
         this.model.on('sync', this.render, this);
     },
     render: function(){

@@ -20,7 +20,7 @@ module.exports = function(grunt) {
                     mangle: false
                 },
                 files: {
-                    'public/js/lib/resources.min.js': ['bower_components/jquery/dist/jquery.min.js', 'public/js/lib/underscore-min.js', 'public/js/lib/backbone-min.js'],
+                    'public/js/components.min.js': ['public/components/jquery/dist/jquery.min.js', 'public/components/underscore/underscore-min.js', 'public/components/backbone/backbone-min.js'],
                     'public/js/app.js': ['public/js/Models/*.js', 'public/js/Views/*.js', 'public/js/load.js']
                 }
             }

@@ -13,13 +13,18 @@ var NewWallView = Backbone.View.extend({
         'input .wallpaper': 'wallvalidate'
     },
     submit: function(){
-        this.model.set({
-            wallpaper: this.$('.wallpaper').val(),
-            audio: this.$('.audio').val()
-        });
-
-        this.model.save();
-        this.$('#submitform').css('display', 'none');
+        var match = this.$('.audio').val().match(/^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?(?=.*v=((\w|-){11}))(?:\S+)?$/);
+        var url = this.$('.wallpaper').val();
+        if(match && url.match(/\.(jpeg|jpg|gif|png)$/)) {
+            this.model.set({
+                wallpaper: this.$('.wallpaper').val(),
+                audio: this.$('.audio').val()
+            });
+            this.model.save();
+            this.$('#submitform').css('display', 'none');
+        } else {
+            this.$('input').css('border', 'solid 4px red')
+        }
 
     },
     display: function(){

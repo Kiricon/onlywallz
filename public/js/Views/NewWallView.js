@@ -20,8 +20,16 @@ var NewWallView = Backbone.View.extend({
                 wallpaper: this.$('.wallpaper').val(),
                 audio: this.$('.audio').val()
             });
-            this.model.save();
-            this.$('#submitform').css('display', 'none');
+            this.model.save(null, {
+                success: function(){
+                    $('#submitform').css('display', 'none');
+                    alert('Success');
+                },
+                error: function(){
+                    alert('Something went wrong... Reload the page and try again.')
+                }
+            });
+
         } else {
             this.$('input').css('border', 'solid 4px red')
         }

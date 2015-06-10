@@ -14,12 +14,14 @@ var NewWallView = Backbone.View.extend({
         var match = this.$('.audio').val().match(/^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?(?=.*v=((\w|-){11}))(?:\S+)?$/);
         var url = this.$('.wallpaper').val();
         if(match && url.match(/\.(jpeg|jpg|gif|png)$/)) {
+            this.$('#loader').css('display', 'block');
             this.model.set({
                 wallpaper: this.$('.wallpaper').val(),
                 audio: this.$('.audio').val()
             });
             this.model.save(null, {
                 success: function(){
+                    this.$('#loader').css('display', 'none');
                     $('#submitform').css('display', 'none');
                     $('.success').fadeIn(400).delay(3000).fadeOut(400);
                 },

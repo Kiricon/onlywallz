@@ -6,9 +6,11 @@ var NewWallView = Backbone.View.extend({
         'click #submit': 'submit',
         'click #showsubmit': 'display',
         'keyup .audio': 'youvalidate',
-        'blur .audio': 'youvalidate',
+       // 'blur .audio': 'youvalidate',
+        'input .audio': 'youvalidate',
         'keyup .wallpaper': 'wallvalidate',
-        'blur .wallpaper': 'wallvalidate'
+      //  'blur .wallpaper': 'wallvalidate',
+        'input .wallpaper': 'wallvalidate'
     },
     submit: function(){
         this.model.set({
@@ -26,18 +28,22 @@ var NewWallView = Backbone.View.extend({
     youvalidate: function(){
         var match = this.$('.audio').val().match(/^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?(?=.*v=((\w|-){11}))(?:\S+)?$/);
         if(match){
-            this.$('.audio').css('border', 'solid 2px green');
+            this.$('.audio').css('border', 'solid 4px green');
+            WallOutput.model.set("audio", this.$('.audio').val());
+            WallOutput.render();
         }else{
-            this.$('.audio').css('border', 'solid 2px grey');
+            this.$('.audio').css('border', 'solid 4px grey');
         }
     },
     wallvalidate: function(){
-        var image = new Image();
-        image.src = this.$('.wallpaper').val();
-        if(image.width){
-            this.$('.wallpaper').css('border', 'solid 2px green');
+        var url = this.$('.wallpaper').val();
+        if(url.match(/\.(jpeg|jpg|gif|png)$/)){
+            this.$('.wallpaper').css('border', 'solid 4px green');
+            WallOutput.model.set("wallpaper", url);
+            WallOutput.render();
+
         }else {
-            this.$('.wallpaper').css('border', 'solid 2px grey');
+            this.$('.wallpaper').css('border', 'solid 4px grey');
         }
     }
 

@@ -6,10 +6,8 @@ var NewWallView = Backbone.View.extend({
         'click #submit': 'submit',
         'click #showsubmit': 'display',
         'keyup .audio': 'youvalidate',
-       // 'blur .audio': 'youvalidate',
         'input .audio': 'youvalidate',
         'keyup .wallpaper': 'wallvalidate',
-      //  'blur .wallpaper': 'wallvalidate',
         'input .wallpaper': 'wallvalidate'
     },
     submit: function(){
@@ -23,7 +21,7 @@ var NewWallView = Backbone.View.extend({
             this.model.save(null, {
                 success: function(){
                     $('#submitform').css('display', 'none');
-                    alert('Success');
+                    $('.success').fadeIn(400).delay(3000).fadeOut(400);
                 },
                 error: function(){
                     alert('Something went wrong... Reload the page and try again.')

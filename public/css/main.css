@@ -118,3 +118,21 @@ body {
     margin: 0px 0px;
     float: right;
 }
+
+.success {
+    height: auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    top: 10px;
+    background-color: #43A047;
+    color: #F0F0F0;
+    font-family: Calibri;
+    font-size: 1.4em;
+    padding: 10px;
+    text-align: center;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 0 24px -1px rgba(56,56,56,1);
+    -moz-box-shadow: 0 0 24px -1px rgba(56,56,56,1);
+    box-shadow: 0 0 24px -1px rgba(56,56,56,1);
+}

@@ -29,9 +29,10 @@ class WallzController extends \Phalcon\Mvc\Controller {
             $newwall->wallpaper = $walldata->wallpaper;
             $newwall->audio = $walldata->audio;
 
-            $newwall->save();
-            $response->setContent(json_encode($walldata));
-            return $response;
+            if($newwall->save()) {
+                $response->setContent(json_encode($walldata));
+                return $response;
+            }
 
 
         }

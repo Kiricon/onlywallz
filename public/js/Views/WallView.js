@@ -23,7 +23,7 @@ var WallView = Backbone.View.extend({
                 width: '640',
                 videoId: url[1],
                 events: {
-                   // 'onReady': onPlayerReady,
+                    'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange
                 }
             });
